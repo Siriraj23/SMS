@@ -23,7 +23,7 @@ import React, { useState, useEffect } from 'react';
 
           const fetchStudent = async () => {
             try {
-              const response = await axios.get(`https://sms-t4bu.onrender.com/students/${id}`);
+              const response = await axios.get(`https://sms-backend-doyp.onrender.com/students/${id}`);
               setStudent(response.data);
             } catch (error) {
               console.error('Error fetching student:', error);
@@ -38,7 +38,7 @@ import React, { useState, useEffect } from 'react';
           const handleSubmit = async (e) => {
             e.preventDefault();
             try {
-              await axios.put(`https://sms-t4bu.onrender.com/students/${id}`, student);
+              await axios.put(`https://sms-backend-doyp.onrender.com/students/${id}`, student);
               Swal.fire('Success!', 'Student updated successfully!', 'success');
               navigate('/students');
             } catch (error) {

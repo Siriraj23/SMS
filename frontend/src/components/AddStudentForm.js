@@ -17,7 +17,12 @@ const AddStudentForm = () => {
   });
 
   const handleChange = (e) => {
-    setStudent({ ...student, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    // Convert string "true"/"false" to boolean for isActive
+    const parsedValue = name === "isActive" ? value === "true" : value;
+
+    setStudent({ ...student, [name]: parsedValue });
   };
 
   const handleSubmit = async (e) => {
@@ -37,9 +42,7 @@ const AddStudentForm = () => {
       <h2>Add New Student</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="studentId" className="form-label">
-            Student ID:
-          </label>
+          <label htmlFor="studentId" className="form-label">Student ID:</label>
           <input
             type="text"
             name="studentId"
@@ -51,9 +54,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="firstName" className="form-label">
-            First Name:
-          </label>
+          <label htmlFor="firstName" className="form-label">First Name:</label>
           <input
             type="text"
             name="firstName"
@@ -65,9 +66,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="lastName" className="form-label">
-            Last Name:
-          </label>
+          <label htmlFor="lastName" className="form-label">Last Name:</label>
           <input
             type="text"
             name="lastName"
@@ -79,9 +78,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email:
-          </label>
+          <label htmlFor="email" className="form-label">Email:</label>
           <input
             type="email"
             name="email"
@@ -93,9 +90,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="dob" className="form-label">
-            Date of Birth:
-          </label>
+          <label htmlFor="dob" className="form-label">Date of Birth:</label>
           <input
             type="date"
             name="dob"
@@ -107,9 +102,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="department" className="form-label">
-            Department:
-          </label>
+          <label htmlFor="department" className="form-label">Department:</label>
           <input
             type="text"
             name="department"
@@ -121,9 +114,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="enrollmentYear" className="form-label">
-            Enrollment Year:
-          </label>
+          <label htmlFor="enrollmentYear" className="form-label">Enrollment Year:</label>
           <input
             type="number"
             name="enrollmentYear"
@@ -135,9 +126,7 @@ const AddStudentForm = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="isActive" className="form-label">
-            Active:
-          </label>
+          <label htmlFor="isActive" className="form-label">Active:</label>
           <select
             name="isActive"
             id="isActive"
@@ -145,16 +134,14 @@ const AddStudentForm = () => {
             value={student.isActive}
             onChange={handleChange}
           >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-            </select>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Add Student
-                </button>
-              </form>
-            </div>
-          );
-        };
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <button type="submit" className="btn btn-primary">Add Student</button>
+      </form>
+    </div>
+  );
+};
 
-        export default AddStudentForm;
+export default AddStudentForm;

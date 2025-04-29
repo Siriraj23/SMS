@@ -7,6 +7,15 @@ const studentRoutes = require('./routes/studentRoutes');
 
 dotenv.config(); // Load environment variables from .env file
 
+const corsOptions = {
+  origin: 'https://sms-frontend-s9cb.onrender.com', 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, 
+  optionsSuccessStatus: 204, 
+};
+
+app.use(cors(corsOptions));
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 console.log('MONGODB_URI from server.js:', process.env.MONGODB_URI);

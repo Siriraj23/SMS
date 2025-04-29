@@ -13,7 +13,7 @@ console.log('MONGODB_URI from server.js:', process.env.MONGODB_URI);
 connectDB();
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // Your Render frontend URL
+  origin: 'https://sms-frontend-amql.onrender.com', // Your Render frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,

@@ -23,7 +23,7 @@ const AddStudentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://sms-t4bu.onrender.com/students', student);
+      await axios.post('https://sms-backend-doyp.onrender.com/students', student);
       Swal.fire('Success!', 'Student added successfully!', 'success');
       navigate('/students');
     } catch (error) {

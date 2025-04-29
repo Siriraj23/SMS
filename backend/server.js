@@ -14,7 +14,7 @@ connectDB();
 
 
 app.use(cors({
-  origin: "https://sms-frontend-amql.onrender.com", // Allow your frontend
+  origin: "https://sms-frontend-3cj3.onrender.com", // Allow your frontend
 }));
 
 

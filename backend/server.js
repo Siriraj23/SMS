@@ -11,25 +11,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 console.log('MONGODB_URI from server.js:', process.env.MONGODB_URI);
 connectDB();
-const allowedOrigins = [
-  'https://sms-frontend-amql.onrender.com/', // Ensure correct URL (without trailing slash if that's the case)
-  'http://localhost:3000'
-];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) { // Allow requests from listed origins and no origin (e.g., same-origin requests)
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+const cors = require("cors");
+app.use(cors({
+  origin: "https://sms-frontend-amql.onrender.com", // Allow your frontend
+}));
 
-app.use(cors(corsOptions));
 
 app.use(express.json());
 

@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 console.log('MONGODB_URI from server.js:', process.env.MONGODB_URI);
 connectDB();
 
-const cors = require("cors");
+
 app.use(cors({
   origin: "https://sms-frontend-amql.onrender.com", // Allow your frontend
 }));
